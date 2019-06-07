@@ -1,19 +1,22 @@
 let id = document.getElementById("space");
+let planetNumber = 0;
+let clickPlanetName = "Planet";
 /*Detection du clic souris*/
 
 
 let context = id.getContext("2d");
-document.getElementById("space").onmousedown = function (event) {
+document.getElementById("body").onmousedown = function (event) {
     event = event || window.event;
     //console.log(event.buttons);
     event.preventDefault();
-    let x = event.screenX - 380;
-    let y = event.screenY - 200;
+    let x = event.pageX -350;
 
-    listePlanetes.push(createPlanet("new planet", x, y, 5, 0, 10, "#D0A000"));
+    let y = event.pageY -120;
 
-    //console.log(x);
-}
+    listePlanetes.push(createPlanet(clickPlanetName, x, y, 0, 0, 10, "#D0A000"));
+
+    console.log("x:"+x+" y:"+y);
+};
 
 /**
  *Permet de créer une planete avec des parametres par defaut
@@ -27,7 +30,13 @@ document.getElementById("space").onmousedown = function (event) {
  * @returns {{posX: *, posY: *, dirY: *, taille: *, dirX: *, name: *, couleur: *, showDetails(): void}}
  */
 function createPlanet(named, posX, posY, dirX, dirY, taille, couleur) {
+    let nameToWite = "";
+    if (clickPlanetName === named) {
+        nameToWite = named + "_" + (planetNumber++).toString();
 
+    } else {
+        nameToWite = named
+    }
     let planet = {
         posX: posX,
         posY: posY,
@@ -35,7 +44,8 @@ function createPlanet(named, posX, posY, dirX, dirY, taille, couleur) {
         dirY: dirY,
         taille: taille,
         couleur: couleur,
-        name: named,
+        name: nameToWite,
+
         /*showDetails() {
             const accepting = this.isAvailable ? 'is accepting applications' : "is not currently accepting applications";
             //console.log(`The ${this.position} position is ${this.type} and ${accepting}.`);
@@ -249,7 +259,7 @@ function draw() {
                     }
 
                     listePlanetes.push(createPlanet(planet.name + "_" + planetToTest.name, planet.posX, planet.posY, composanteVitesseX, composanteVitesseY, planet.taille + planetToTest.taille, couleurToAdd));
-                    console.log("Nouvelle planete : "+planet.name);
+                    console.log("Nouvelle planete : " + planet.name);
                     //retrait de la planete 1
                     for (let i = 0; i < listePlanetes.length; i++) {
                         if (listePlanetes[i].name === planet.name || listePlanetes[i].name === planetToTest.name) {
