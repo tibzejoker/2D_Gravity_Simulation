@@ -5,6 +5,7 @@ let clickPlanetName = "Planet";
 
 let listOfRandomPlanetNames = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto", "Ceres", "Haumea", "Makemake", "Eris", "Titan", "Enceladus", "Iapetus", "Phoebe", "Rhea", "Tethys", "Dione", "Titan", "Hyperion", "Iapetus", "Phoebe", "Rhea", "Tethys", "Dione", "Titan", "Hyperion", "Iapetus", "Phoebe", "Rhea", "Tethys", "Dione", "Titan", "Hyperion", "Iapetus", "Phoebe", "Rhea", "Tethys", "Dione", "Titan", "Hyperion", "Iapetus", "Phoebe", "Rhea", "Tethys", "Dione", "Titan", "Hyperion", "Iapetus", "Phoebe", "Rhea", "Tethys", "Dione", "Titan", "Hyperion", ];
 
+
 function randomColor() {
     var r = Math.floor(Math.random() * 200 + 56);
     var g = Math.floor(Math.random() * 200 + 56);
