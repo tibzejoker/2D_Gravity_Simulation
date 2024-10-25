@@ -8,17 +8,19 @@
     #space{
       position:absolute;
       background-color: #000000;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
      }
 
   </style>
   </head>
-  <body onkeydown="touche(event);">
-  <body id = "body">
+  <body id="body" onload="init();" onkeydown="touche(event);">
       <div class="content">
         <canvas id="space" height="900" width="1900"  >
         </canvas>
       </div>
    <script src="space.js"></script>
-   <body onload="init();">
   </body>
 </html>
